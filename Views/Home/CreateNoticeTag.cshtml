@@ -1,0 +1,46 @@
+﻿@model CreateNoticeTagModel
+
+@{
+}
+
+
+
+<form asp-controller="Home" asp-action="CreateNoticeTagConfirm" method="post">
+<h1>Notices</h1>
+<div>
+    <ul class="list-group">
+    @if (Model.Notices != null)
+    {
+        @foreach (Notice item in Model.Notices)
+        {
+            
+            <li class="list-group-item w-25">
+                <input asp-for="NoticeId" class="form-check-input me-1" type="radio" name="NoticeId" id="@item.Id" value="@item.Id">
+                <label class="form-check-label">(@item.Id) @item.Title</label>
+            </li>        
+        }
+    }
+    </ul>
+</div>
+
+<h1>Tag's</h1>
+<div>
+    <ul class="list-group">
+        @if (Model.Tags != null)
+        {
+            @foreach (Tag item in Model.Tags)
+            {
+                <li class="list-group-item w-50">
+                    <input asp-for="TagId"  class="form-check-input me-1" type="radio" name="TagId" id="@item.Id" value="@item.Id">
+                    <label class="form-check-label">(@item.Id) @item.Description</label>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div>
+        <button type="submit" class="btn btn-primary mt-10">Create</button>
+</div>
+</form>
+
+

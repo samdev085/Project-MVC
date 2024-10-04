@@ -1,0 +1,26 @@
+﻿@model Tag
+
+@{
+
+}
+
+<div class="text-center">
+    <h1>Edit Tag</h1>
+</div>
+
+<form asp-controller="Home" asp-action="EditTagConfirm" method="post">   
+    <div class="mb-3">
+        <div>
+        <label class="form-label">@Model.Id</label>
+        </div>
+        <input type="hidden" asp-for="@Model.Id"/>
+        <label class="form-label">Description</label>
+        <input type="text" asp-for="Description" class="form-control w-25">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+

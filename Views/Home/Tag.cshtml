@@ -1,0 +1,45 @@
+﻿@model List<Tag>
+
+
+
+
+
+<div class="text-center">
+    <H1>Tag's</H1>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="CreateTag" type="submit" class="btn btn-primary">Create New Tag</a>
+</div>
+
+<div class="table-responsive" style="padding: 30px;">
+
+    <table class="table table-striped table-hover table-sm" id="tag-table">
+        <thead>
+        <tr class="thead-light">
+            <th>Identifier</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if(Model != null && Model.Any())
+        {
+            @foreach(Tag item in Model)
+            {
+                <tr class="">
+                    <td>@item.Id</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <a asp-route-id="@item.Id" asp-controller="Home" asp-action="EditTag" class="btn btn-primary">Edit</a>
+                        <a asp-route-id="@item.Id" asp-controller="Home" asp-action="DeleteTag" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
+
+ 

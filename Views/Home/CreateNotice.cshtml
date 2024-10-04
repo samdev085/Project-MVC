@@ -1,0 +1,21 @@
+﻿@model Notice
+
+@{
+}
+
+<form asp-controller="Home" asp-action="CreateNoticeConfirm" method="post">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Notice Title</label>
+        <input type="text" asp-for="Title" class="form-control w-25" id="title">
+        @Html.ValidationMessageFor(x => x.Title)
+    </div>
+
+    <div class="mb-3">
+        <label for="text" class="form-label">Notice Text</label>
+        <textarea type="text" asp-for="Text" class="form-control" id="text" rows="3"></textarea>
+        @Html.ValidationMessageFor(x => x.Text)
+    </div>
+    <button type="submit" class="btn btn-primary">Create Notice</button>
+
+</form>

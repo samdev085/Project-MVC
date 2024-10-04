@@ -1,0 +1,47 @@
+﻿@model RegisterModel
+
+@{
+    Layout = "_LayoutLoggedOut";
+    ViewData["Title"] = "CreateRegister";
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<div>
+    <h1>Register Form</h1>
+</div>
+
+<form class="needs-validation" asp-controller="Login" asp-action="CreateUser" method="post" novalidate>
+
+    <div class="mb-3 has-validation">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control w-25" id="name" required>                  
+       
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" asp-for="Email" class="form-control w-25" id="email" aria-describedby="emailHelp" required>
+       
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" asp-for="Password" class="form-control w-25" id="password" required>
+       
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

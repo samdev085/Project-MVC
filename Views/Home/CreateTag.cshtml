@@ -1,0 +1,12 @@
+﻿@model Tag
+
+
+<form asp-controller="Home" asp-action="CreateNewTag" method="post">
+    <div class="mb-3">
+        <label for="description" class="form-label">Tag Description</label>
+        <textarea type="text" asp-for="Description" class="form-control" id="description" rows="3"></textarea>
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+    <button type="submit" class="btn btn-primary">Create New Tag</button>
+
+</form>

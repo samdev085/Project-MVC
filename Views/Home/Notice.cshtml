@@ -1,0 +1,46 @@
+﻿@model List<Notice>
+@{
+}
+
+
+<div class="text-center">
+    <H1>Notices</H1>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="CreateNotice" type="submit" class="btn btn-primary">Create New Notice</a>
+</div>
+
+<div class="table-responsive" style="padding: 30px;">
+
+    <table class="table table-striped table-hover table-sm" id="notice-table">
+        <thead>
+        <tr class="thead-light">
+            <th>Identifier</th>
+            <th>Title</th>
+            <th>Text</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (Notice item in Model)
+            {
+                <tr class="">
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Text</td>
+                    <td>@item.User</td>
+                    <td>
+                        <a asp-route-id="@item.Id" asp-controller="Home" asp-action="EditNotice" class="btn btn-primary">Edit</a>
+                        <a asp-route-id="@item.Id" asp-controller="Home" asp-action="DeleteNotice" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
